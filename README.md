@@ -30,6 +30,7 @@ for numeros in range(0, 101, 1): # Utilizamos el "for" para recorrer cada objeto
 Continuamos con el siguiente punto. 
 
 2. Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000.
+
 Desarrolle el siguiente código para la solución de dicho punto.  
 
 ```Python
@@ -52,6 +53,7 @@ for pares in range(0, 1001, 2): # Utilizamos el "for" para recorrer cada objeto 
 Avanzando, nos encontramos con el siguiente punto. 
 
 3. Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
+
 Para ello, desarrolle el siguiente código. 
 
 ```Python
@@ -115,7 +117,17 @@ Avanzando, nos encontramos con el siguiente punto.
 Para ello, desarrolle el siguiente código. 
 
 ```Python
-LLENAR 
+# Potencia de dos valores dados.
+ 
+x: float = float(input("Ingrese base: ")) # Inicia. Pide ingresar número. 
+n: int = int(input("Ingrese exponente natural: "))  # Pide ingresar número. 
+
+
+datos = [n] # Generamos una lista. 
+
+for valores in datos: # Utilizamos "For" para recorrer cada objeto de la colección. 
+    operación = x**valores # Opera los objetos de la colección. 
+    print(str(x) + " a la " + str(valores) + " es: " + str(operación)) # Imprime. 
 ```
 ---
 
@@ -138,7 +150,35 @@ Avanzamos con los siguientes puntos, mi némesis.
 Desarrolle el siguiente código para la solución de dicho punto.  
 
 ```Python
-LLENAR
+# Función exponencial. 
+
+import math # Llamamos a la función de matematicas. 
+
+def funciónExponencial (exponente: float, n: int) -> float:  # Generamos función y definimos sus variables. 
+    real = math.exp(exponente) # Generamos una variable que sea la operación de la función exponencial. 
+    aproximado = 0 # Generamos variable. 
+    
+
+    range(0, n+1, 1)   # Establecemos colección. (Esta vez representará las repeticiones)
+    for i in range(0, n+1, 1): # Utilizamos "For" para recorrer cada objeto de la colección. 
+        operación = (exponente**i)/(math.factorial(i))  # Establecemos operación determinada. 
+        aproximado = aproximado+operación  # Actualizamos variable. (Suma al aproximado la operación)
+            
+    
+    diferencia = abs(real - aproximado)  # Establecemos la diferencia entre la variable "real" y el valor final de la variable "aproximado"
+
+ # Indicamos con el return lo que debe devolver esta función.  
+    return ("El valor real de la función exponencial es: " + str(real) + " comparado con su aproximado en las series de Maclaurin que es de: " + str(aproximado) + " \n  Y tienen una diferencia de: " + str(diferencia))   
+
+
+
+
+
+if __name__ == "__main__": # Nos permite correr funciones. 
+    exponente = float(input("Ingrese exponente: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    n = int(input("Ingrese número de repeticiones: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    función = funciónExponencial (exponente, n) # Generamos variable que tomará el valor de return en la función anteriormente establecida. 
+    print(función) # Imprimimos. 
 ```
 --- 
 9. Diseñar una función que permita calcular una aproximación de la función seno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin.
@@ -146,7 +186,29 @@ LLENAR
 Para ello, desarrolle el siguiente código. 
 
 ```Python
-LLENAR 
+# Función seno. 
+
+import math # Llamamos a la función de matematicas. 
+
+def funciónSeno (x: float, n: int) -> float:  # Generamos función y definimos sus variables. 
+    real = math.sin(x)  # Generamos una variable que sea la operación de la función del seno. 
+    aproximado = 0 # Generamos variable. 
+
+    range(0, n+1, 1)  # Establecemos colección. (Esta vez representará las repeticiones)
+    for i in range(0, n+1, 1): # Utilizamos "For" para recorrer cada objeto de la colección. 
+        operación: float = (((-1)**i)*(x**((2*i)+1)))/math.factorial(((2*i)+1)) # Establecemos operación determinada. 
+        aproximado = aproximado+operación # Actualizamos variable. (Suma al aproximado la operación)
+
+    diferencia = abs(real - aproximado)  # Establecemos la diferencia entre la variable "real" y el valor final de la variable "aproximado"
+
+# Indicamos con el return lo que debe devolver esta función.  
+    return ("El valor real de la función seno es: " + str(real) + " comparado con su aproximado en las series de Maclaurin que es de: " + str(aproximado) + " \n  Y tienen una diferencia de: " + str(diferencia))
+
+if __name__ == "__main__": # Nos permite correr funciones. 
+    x = float(input("Ingrese valor: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    n = int(input("Ingrese serie de repeticiones: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    función = funciónSeno (x, n) # Generamos variable que tomará el valor de return en la función anteriormente establecida. 
+    print(función)  # Imprimimos. 
 ```
 ---
 10. Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin.
@@ -154,7 +216,29 @@ LLENAR
 Para ello desarrolle el siguiente código. 
 
 ```Python
-LLENA 
+# Función Arcotangente. 
+
+import math # Llamamos a la función de matematicas. 
+
+def funciónArcotangente (x: float, n:int): # Generamos función y definimos sus variables. 
+    real = math.atan(x) # Generamos una variable que sea la operación de la función del arcotangente. 
+    aproximado = 0 # Generamos variable. 
+
+    range(1, n+1, 1)  # Establecemos colección. (Esta vez representará las repeticiones)
+    for i in range(1, n+1, 1): # Utilizamos "For" para recorrer cada objeto de la colección. 
+        operación = ((-1)**i)*(x**((2*i)+1))/((2*i)+1) # Establecemos operación determinada. 
+        aproximado = aproximado+operación # Actualizamos variable. (Suma al aproximado la operación)
+    
+    diferencia = abs(real - aproximado)  # Establecemos la diferencia entre la variable "real" y el valor final de la variable "aproximado"
+
+# Indicamos con el return lo que debe devolver esta función.  
+    return ("El valor real de la función del arcotangente es: " + str(real) + " comparado con su aproximado en las series de Maclaurin que es de: " + str(aproximado) + " \n  Y tienen una diferencia de: " + str(diferencia))
+
+if __name__ == "__main__": # Nos permite correr funciones. 
+    x = float(input("Ingrese valor: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    n = int(input("Ingrese serie de repeticiones: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    función = funciónArcotangente (x,n)  # Generamos variable que tomará el valor de return en la función anteriormente establecida. 
+    print(función) # Imprimimos. 
 ```
 
 ---
