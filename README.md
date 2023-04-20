@@ -224,7 +224,7 @@ def funciónArcotangente (x: float, n:int): # Generamos función y definimos sus
     real = math.atan(x) # Generamos una variable que sea la operación de la función del arcotangente. 
     aproximado = 0 # Generamos variable. 
 
-    range(1, n+1, 1)  # Establecemos colección. (Esta vez representará las repeticiones)
+    range(0, n+1, 1)  # Establecemos colección. (Esta vez representará las repeticiones)
     for i in range(1, n+1, 1): # Utilizamos "For" para recorrer cada objeto de la colección. 
         operación = ((-1)**i)*(x**((2*i)+1))/((2*i)+1) # Establecemos operación determinada. 
         aproximado = aproximado+operación # Actualizamos variable. (Suma al aproximado la operación)
@@ -235,7 +235,7 @@ def funciónArcotangente (x: float, n:int): # Generamos función y definimos sus
     return ("El valor real de la función del arcotangente es: " + str(real) + " comparado con su aproximado en las series de Maclaurin que es de: " + str(aproximado) + " \n  Y tienen una diferencia de: " + str(diferencia))
 
 if __name__ == "__main__": # Nos permite correr funciones. 
-    x = float(input("Ingrese valor: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
+    x = float(input("Ingrese valor de entre [-1, 1]: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
     n = int(input("Ingrese serie de repeticiones: ")) # Pide ingresar número.(El cuál permitirá a la función tomar dicho valor)
     función = funciónArcotangente (x,n)  # Generamos variable que tomará el valor de return en la función anteriormente establecida. 
     print(función) # Imprimimos. 
